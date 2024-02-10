@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        @font-face {
+            font-family: "El.law";
+            src: url('fonts/font.ttf');
+        }
+
+        @font-face {
+            font-family: "paraglide";
+            src: url('fonts/Philosopher-Regular.ttf');
+        }
+
+        body {
+            color: aliceblue;
+            font-family: 'El.law';
+            margin: 20px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('image/back.jpg');
+        }
+
+        #bioContainer {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #imageContainer {
+            flex: 1;
+            margin-right: 20px;
+            overflow: hidden;
+            transition: width 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        
+
+        #imageContainer img {
+
+            border-color: mediumslateblue;
+            width: 1000px;
+            max-width: 300px;
+            height: auto;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 20px;
+            opacity: 0;
+            /* Start with zero opacity */
+            animation: fadeIn 2.3s forwards;
+            /* Use fadeIn animation to gradually increase opacity */
+            margin-top: 120px;
+            margin-left: 10px;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        #skill-txt {
+            text-align: center;
+        }
+
+        #detailsContainer,
+        #detailsContainer2,
+        #detailsContainer3 {
+            background: linear-gradient(149deg, rgba(6, 0, 113, 1) 45%, rgba(0, 86, 105, 1) 85%);
+
+            /* Cyan color with transparency */
+            flex: 1;
+            border: 2px solid #0400ff;
+            border-radius: 5%;
+            margin: 10px;
+            padding: 10px;
+            opacity: 0;
+            animation: fadeIn 1.3s forwards;
+            /* filter: blur(10px); */
+            /* Adjust the blur radius as needed */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* #detailsContainer2 p {
+            font-size: 10px;
+            margin-bottom: 20px;
+        } */
+        h1 {
+            color: aliceblue;
+        }
+
+        h2 {
+            color: aliceblue;
+            /* text-underline-offset: 1px; */
+        }
+
+        p {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-family: "El.law";
+            font-size: 20px;
+        }
+
+        .typewriter-effect h1,
+        .typewriter-effect h2,
+        .typewriter-effect p {
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid transparent;
+            animation: typing 2.5s steps(400, end) forwards, blink-caret .75s step-end infinite 4s;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
+
+    <title>Bio Data Page</title>
+</head>
+
+<body>
+
+    <div id="bioContainer">
+        <div id="imageContainer" class="typewriter-effect">
+            <img src="image/mayank.jpg" alt="Error-404">
+            <center><p>Mayank Sharma</p></center>
+        </div>
+        
+        
+        <div id="detailsContainer" class="typewriter-effect">
+            <h2><u>Personal Information</u></h2>
+            <p><strong>Name:</strong> Mayank Sharma</p>
+            <p><strong>Date of Birth:</strong> 4th May, 2009</p>
+            <p><strong>Location</strong> India, Ajmer</p>
+            <p><strong>Age:</strong> 14</p>
+            <p><strong>Weight:</strong> 52 Kg</p>
+            <p><strong>Height:</strong> 5'11</p>
+            <p><strong>Blood Group:</strong> B+ve</p>
+            <p><strong>Birthmarks (if any):</strong> None</p>
+
+            <!-- <p><strong>:</strong> Degree, University</p>
+            <p><strong>Education:</strong> Degree, University</p> -->
+
+
+        </div>
+
+        <!-- <div id="detailsContainer2" class="typewriter-effect">
+            <h2>Skills</h2>
+            <p><strong>Programming:</strong> Proficient in Python, CSS, HTML</p>
+            <p><strong>Education:</strong> Class 9th, St. Anselm's School</p>
+            <p><strong>Mathematics:</strong> Strong aptitude and problem-solving skills</p>
+            <p><strong>Coding:</strong> Developing Python apps with creative problem-solving</p>
+            <p><strong>Drawing:</strong> Creative and skilled in artistic expression</p>
+            <p><strong>Badminton:</strong> Proficient in playing badminton with agility and precision</p>
+
+        </div> -->
+
+        <div id="detailsContainer3" class="typewriter-effect">
+
+            <h2><u>Contact Information</u></h2>
+            <p><strong>Phone:</strong> 8854855181</p>
+            <p><strong>Roll.No:</strong> 3149</p>
+            <p><strong>Sr.No:</strong> 3582/13</p>
+            <p><strong>School:</strong> St. Anselm Sr. Sec. School</p>
+            <p><strong>Subject:</strong> Computer</p>
+            <!-- <p><strong>Education:</strong> Degree, University</p>
+            <p><strong>Education:</strong> Degree, University</p>
+            <p><strong>Education:</strong> Degree, University</p>
+            <p><strong>Education:</strong> Degree, University</p> -->
+
+        </div>
+    </div>
+
+    <div class="typewriter-effect about-me">
+        <center>
+            <u>
+                <p style="font-size: 30px; color: #ffffff; font-family: 'paraglide'; text-align: center;"><strong>About
+                        Me</strong></p>
+        </center></u>
+        <p>
+            Hello, I'm Mayank Sharma, a 14-year-old student from Rajasthan, India.
+            Currently attending St. Anselm's School, I have a passion for programming <br> and mathematics.
+            Proficient in languages like Python, CSS, and HTML, I enjoy the creative challenge of
+            developing Python apps with a problem-solving <br> mindset.  Beyond academics, I express my
+            creativity through drawing and stay active by playing badminton. With a height of 5'11"
+            and a weight of 52kg,<br> I maintain a healthy lifestyle. As a dedicated student with diverse
+            interests, I strive to balance academic excellence with a well-rounded personal <br>development
+            journey.
+        </p>
+    </div>
+    <div class="typewriter-effect about-me">
+
+            <center>
+                <u>
+                    <p style="font-size: 30px; color: #ffffff; font-family: 'paraglide'; text-align: center;"><strong>My
+                            Skills</strong></p>
+                </u>
+                
+            </center>
+        <p>
+            I possess a strong foundation in programming, particularly in
+            languages such as Python, CSS, and HTML. Proficient in developing Python applications,<br> I showcase creative
+            problem-solving abilities. Alongside my coding skills, I excel in mathematics, demonstrating a keen aptitude
+            and a systematic approach <br> to problem-solving. Beyond the realm of academics, I find joy in expressing my
+            creativity through drawing and staying active with my proficiency in <br> playing badminton. These skills,
+            coupled with my dedication and diverse interests, contribute to a well-rounded approach to both my academic
+            and <br>personal pursuits.
+        </p>
+    </div>
+</body>
+
+</html>

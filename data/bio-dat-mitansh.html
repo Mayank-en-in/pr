@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @font-face {
+            font-family: "El.law";
+            src: url('fonts/font.ttf');
+        }
+
+        @font-face {
+            font-family: "paraglide";
+            src: url('fonts/Philosopher-Regular.ttf');
+        }
+
+        body {
+            font-family: 'El.law';
+            padding: 0;
+            box-sizing: border-box;
+            background: url('./image/back.png');
+            /* background-repeat: repeat; */
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: aliceblue;
+            margin: 20px;
+            margin-top: 100px;
+
+        }
+
+        .container {
+
+            border: 2px solid aliceblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            margin-top: 20px;
+            /* Add margin at the top */
+        }
+
+        .box {
+            margin-top: auto;
+            /* border: 2px solid azure; */
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+            backdrop-filter: blur(0px);
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #image-box {
+            order: 1;
+            /* backdrop-filter: blur(10px); */
+            border-radius: 10%;
+        }
+        #imageContainer {
+            order: 1;
+            margin-right: 20px;
+            overflow: hidden;
+            transition: width 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        #imageContainer img {
+
+            border-color: mediumslateblue;
+            width: 100px;
+            max-width: 300px;
+            height: auto;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 20px;
+            opacity: 0; 
+            /* Start with zero opacity */
+            animation: fadeIn 2.3s forwards;
+            /* Use fadeIn animation to gradually increase opacity */
+            margin-top: 12px;
+            margin-left: 10px;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        #personal-details-box {
+            border: 2px solid aliceblue;
+            border-radius: 40px;
+            order: 2;
+            
+        }
+
+        #contact-box {
+            order: 3;
+            border: 2px solid aliceblue;
+            border-radius: 40px;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            /* Adjust styles for screens less than or equal to 600px wide */
+            .box {
+                width: 100%;
+            }
+        }
+        .about-me {
+            text-align: left;
+        }
+    </style>
+    <title>Bio Data</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="flex-container">
+            <!-- 1st Box - Image -->
+            <div id="imageContainer" class="box">
+                <img src="./image/mitansh.jpg" alt="User Image" style="width: 100%;">
+                <p>Mitansh Jain</p>
+            </div>
+
+            <!-- 2nd Box - Personal Details -->
+            <div id="personal-details-box" class="box">
+                <h2>Personal Details</h2>
+                <p><strong>Name:</strong> Mitansh Jain</p>
+                <p><strong>Date of Birth:</strong> 10<sup>th</sup> November, 2009</p>
+                <p><strong>Location:</strong> Ajmer, Rajasthan</p>
+                <p><strong>Age:</strong> 14</p>
+                <p><strong>Weight:</strong> 65 Kg</p>
+                <p><strong>Height:</strong> 5'10</p>
+                <p><strong>Blood Group:</strong> O+ve</p>
+                <p><strong>Birthmarks (if any):</strong> None</p>
+                <!-- Add more personal details as needed -->
+            </div>
+
+            <!-- 3rd Box - Skills and Misc Details -->
+            <div id="contact-box" class="box">
+                <h2><u>Contact Information</u></h2>
+                <p><strong>Phone:</strong> 9414252767</p>
+                <p><strong>Roll.No:</strong> 3150</p>
+                <p><strong>Sr.No:</strong> 4928/17</p>
+                <p><strong>School:</strong> St. Anselm Sr. Sec. School, Ajmer</p>
+                <p><strong>Subject:</strong> Computer</p>
+            </div>
+        </div>
+
+        <!-- About Me Section -->
+        <div class="about-me">
+            <h2 style="text-align: center;">About Me</h2>
+            <p>Hi, this is Mitansh Jain, a teenager currently studying at St Anselm Sr. Sec. School, Ajmer. Having
+                interest in Mathematics and Science since childhood, I aspire to be an engineer. My goal is to clear JEE
+                Mains and Advance with good marks and get admission in my dream college.</p>
+            <p>Being fit in life, I regularly play cricket and aim to excel in academics for my holistic development.</p>
+            <center><h3>MY SKILLS</h3></center>
+            <p>I am actively good at mental calculation and problem-solving abilities in Maths and Physics. I also enjoy
+                reading in my free time to excel in my English. With basic knowledge about HTML and Python, I have
+                developed an interest in tech. I am a keen learner and never hesitate to learn new things. Being a good
+                listener, I am also a good speaker.</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+</html>

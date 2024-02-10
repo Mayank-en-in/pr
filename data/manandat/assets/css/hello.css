@@ -1,0 +1,7 @@
+/* Add styles for the skill section */
+.skillc, .prog-row {
+    color: aliceblue;/* Adjust the alpha value for transparency */
+    padding: 10px; /* Add padding for better visibility */
+    margin-bottom: 15px; /* Add margin for separation */
+    border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+}

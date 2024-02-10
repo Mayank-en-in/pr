@@ -1,0 +1,12 @@
+/* Add styles for the navigation tabs */
+.nav-tabs {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value for transparency */
+}
+
+.nav-tabs a {
+    color: black; /* Set text color */
+}
+
+.nav-tabs a:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value for transparency on hover */
+}

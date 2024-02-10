@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Data</title>
+    <link href="css/select2.css" rel="stylesheet" />
+</head>
+
+<style>
+    @font-face {
+        font-family: "El.law";
+        src: url('data/fonts/font.ttf');
+    }
+
+    @font-face {
+        font-family: "paraglide";
+        src: url('data/fonts/Philosopher-Regular.ttf');
+    }
+
+    body {
+        margin: 0;
+        font-family: "El.law";
+        background-image: url("back.avif");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    header {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+        color: #fff;
+    }
+
+    nav {
+        background-color: #444;
+        padding: 100px;
+        text-align: center;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+    }
+
+    .typewriter-effect h1,
+    .typewriter-effect h2,
+    .typewriter-effect p {
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: .15em solid transparent;
+        animation: typing 2.5s steps(400, end) forwards, blink-caret .75s step-end infinite 4s;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink-caret {
+
+        from,
+        to {
+            border-color: transparent;
+        }
+
+        50% {
+            border-color: transparent;
+        }
+    }
+
+    .btn {
+        /* margin: 100px; */
+        font-family: 'paraglide';
+        padding: 15px 40px;
+        border: none;
+        outline: none;
+        color: #FFF;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 12px;
+    }
+
+    .btn::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #0e0e0e;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
+
+    /* glow */
+    .btn::before {
+        content: "";
+        background: linear-gradient(45deg,
+                #FF0000, #FF7300, #FFFB00, #48FF00,
+                #00FFD5, #002BFF, #FF00C8, #FF0000);
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 600%;
+        z-index: -1;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+        opacity: 0;
+    }
+
+    @keyframes glowing {
+        0% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 400% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+
+    /* hover */
+    .btn:hover::before {
+        opacity: 1;
+    }
+
+    .btn:active:after {
+        background: transparent;
+    }
+
+    .btn:active {
+        color: #000;
+        font-weight: bold;
+    }
+
+    /* Container Styles */
+    .container {
+        color: aliceblue;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        /* background-color: #f0f0f0; */
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 9999;
+    }
+
+    .loading-message {
+        font-size: 20px;
+    }
+
+    .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top: 4px solid #333;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .dropdown {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    /* Style for the search button */
+    #searchBtn {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: aliceblue;
+        line-height: 28px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        /* background-color: #c71515; */
+        background: linear-gradient(253deg, rgba(0, 3, 69, 1) 0%, rgba(62, 0, 62, 1) 100%);
+
+        /* Change this to your desired background color */
+        border: 1px solid #a57d7d;
+        /* Change this to your desired border color */
+        border-radius: 5px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        background: linear-gradient(253deg, rgba(0, 3, 64, 1) 0%, rgba(98, 0, 218, 1) 100%);
+        /* Change this to your desired arrow color */
+    }
+
+    .select2-container--default .select2-results__option--highlighted {
+        background: linear-gradient(253deg, rgba(0, 3, 64, 1) 0%, rgba(98, 0, 218, 1) 100%);
+        /* Change this to your desired highlight color */
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px solid rgb(145, 176, 204);
+        color: #fff;
+        padding: 10px 20px;
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+    }
+
+    .navbar-brand {
+        font-size: 1.5em;
+    }
+
+    .navbar-links {
+        display: flex;
+    }
+
+    .navbar-links a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+    }
+
+    .navbar-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .navbar-toggle span {
+        height: 3px;
+        width: 25px;
+        background-color: #fff;
+        margin: 5px 0;
+    }
+
+    .backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .navbar-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #333;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .navbar-links a {
+            display: block;
+            padding: 10px 0;
+        }
+
+        .navbar-toggle {
+            display: flex;
+        }
+
+        .backdrop {
+            display: none;
+        }
+    }
+
+    .navbar-links a.active {
+        color: #ffcc00;
+        /* Highlight color for the active link */
+        font-weight: bold;
+        /* You can adjust the styling based on your preference */
+    }
+</style>
+
+<body>
+    <div class="typewriter-effect">
+        <!-- Header Section -->
+
+        <div class="navbar">
+            <div class="navbar-brand"><p>Computer Project 2023-24</p></div>
+            <div class="navbar-links">
+                <a href="../index.html" class="active"><p>Home</p></a>
+                <a href="data/Details.html"><p>Project Details</p></a>
+                <a href="data/Bibliography.html" ><p>Bibliography</p></a>
+                <a href="data/Project-report.html"><p>Project-Report</p></a>
+            </div>
+            <div class="navbar-toggle" onclick="toggleNavbar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="backdrop" onclick="closeNavbar()"></div>
+        <!-- Navigation Bar Section -->
+        <!-- <nav>
+            <a href="#">Home</a>
+        </nav> -->
+
+        <!-- Containers -->
+        <div class="container" id="container1">
+            <center>
+                <div class="dropdown">
+                    <label for="selectPerson"><p>Select a Student or Search:</p></label>
+                    <select id="selectPerson" class="js-select2" style="width: 200px;">
+                        <option value="mayank"><p>Mayank Sharma</p></option>
+                        <option value="manan"><p>Manan Chauhan</p></option>
+                        <option value="mitansh"><p>Mitansh Jain</p></option>
+                        <option value="hafi"><p>Mohhamad Hafi</p></option>
+                        <option value="navneet"><p>Navneet Nirwan</p></option>
+                    </select>
+                    <button style="border-left: 10px;" class="btn" onclick="redirectToSelectedPerson()">Search</button>
+                </div>
+                <br>
+                <center>
+                    <input type="checkbox" id="verificationCheckbox" name="verificationCheckbox">
+                    <label for="verificationCheckbox" style="color: aliceblue;">I verify the information and proceed to view Bio-data of this student</label>
+                </center>
+                <br>
+            </center>
+        </div>
+        
+
+    </div>
+    <div class="overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <div class="loading-message">Loading...</div>
+    </div>
+
+    <script src="Java_script/jquery.min.js"></script>
+    <script src="Java_script/select2.js"></script>
+
+    <script>
+        // function redrmayank() {
+        //     window.location.assign("data/bio-dat-mayank.html");
+        // }
+        $(document).ready(function () {
+            $('#selectPerson').select2(); // Initialize Select2 on your dropdown
+        });
+        function toggleNavbar() {
+            var navbarLinks = document.querySelector('.navbar-links');
+            var backdrop = document.querySelector('.backdrop');
+
+            navbarLinks.style.display = (navbarLinks.style.display === 'flex') ? 'none' : 'flex';
+            backdrop.style.display = (navbarLinks.style.display === 'flex') ? 'block' : 'none';
+        }
+
+        function closeNavbar() {
+            var navbarLinks = document.querySelector('.navbar-links');
+            var backdrop = document.querySelector('.backdrop');
+
+            navbarLinks.style.display = 'none';
+            backdrop.style.display = 'none';
+        }
+        function redirectToSelectedPerson() {
+            var selectedPerson = $('#selectPerson').val();
+            var verificationCheckbox = document.getElementById('verificationCheckbox');
+
+            // Check if a person is selected and the checkbox is checked
+            if (selectedPerson && verificationCheckbox.checked) {
+                // Show loading overlay
+                $('#loadingOverlay').css('display', 'flex');
+
+                // Simulate a delay (2 seconds in this case)
+                setTimeout(function () {
+                    // Hide loading overlay after the delay
+                    $('#loadingOverlay').css('display', 'none');
+
+                    // Construct the redirect URL based on the selected person
+                    var redirectUrl = 'data/bio-dat-' + selectedPerson + '.html';
+                    window.location.assign(redirectUrl);
+                }, 2000);
+            } else {
+                // Handle the case when no person is selected or the checkbox is not checked (optional)
+                alert('Please select a person and check the verification checkbox before clicking the Search button.');
+            }
+        }
+        function redrmitansh() {
+            // Show loading overlay
+            document.getElementById("loadingOverlay").style.display = "flex";
+
+            // Simulate a delay (2 seconds in this case)
+            setTimeout(function () {
+                // Hide loading overlay after the delay
+                document.getElementById("loadingOverlay").style.display = "none";
+                window.location.assign("data/bio-dat-mitansh.html")
+            }, 200);
+
+
+        }
+        function redrmanan() {
+            // Show loading overlay
+            document.getElementById("loadingOverlay").style.display = "flex";
+
+            // Simulate a delay (2 seconds in this case)
+            setTimeout(function () {
+                // Hide loading overlay after the delay
+                document.getElementById("loadingOverlay").style.display = "none";
+                window.location.assign("data/bio-dat-manan.html")
+            }, 200);
+
+
+        }
+        function redrmayank() {
+            // Show loading overlay
+            document.getElementById("loadingOverlay").style.display = "flex";
+
+            // Simulate a delay (2 seconds in this case)
+            setTimeout(function () {
+                // Hide loading overlay after the delay
+                document.getElementById("loadingOverlay").style.display = "none";
+                window.location.assign("data/bio-dat-mayank.html")
+            }, 2000);
+
+
+        }
+    </script>
+</body>
+
+</html>
